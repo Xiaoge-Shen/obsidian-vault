@@ -1,0 +1,9 @@
+.DS_Store
+.trash/
+
+# Device-local Obsidian UI state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Plugin/cache noise
+.obsidian/cache/
