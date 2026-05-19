@@ -28,6 +28,7 @@ Subagent division:
 - [x] Each mock paper has three compulsory main questions.
 - [x] Each paper includes scenario-based applied questions.
 - [x] Each paper includes a focused multiple-choice section with A-D choices.
+- [x] Every multiple-choice answer in the mark schemes includes a concept explanation.
 - [x] Questions use concise-answer instructions similar to the NLU past papers.
 - [x] Mark schemes are separate from student-facing papers.
 - [x] Coverage and difficulty guide is included.
@@ -114,4 +115,5 @@ LaTeX diagnostics:
 - [x] NLU-style scenario framing is used throughout.
 - [x] MCQs are narrow and concept-focused, with one best answer.
 - [x] Mark schemes provide indicative answer outlines rather than over-specific memorisation answers.
+- [x] MCQ explanations clarify the concept being tested, not just the correct letter.
 - [x] The set functions as a broad revision compass across the exam guide, rather than a prediction of the real exam.

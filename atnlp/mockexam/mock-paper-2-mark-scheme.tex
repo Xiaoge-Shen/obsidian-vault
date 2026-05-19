@@ -35,18 +35,18 @@
 \item Self-consistency samples several reasoning traces, often with nonzero temperature, and aggregates final answers by majority or scoring. It can improve robustness by reducing dependence on one flawed chain. It is costly, can produce plausible false rationales, and may be inappropriate when latency or auditability matters. Award up to 3 marks.
 \end{enumerate}
 
-\item MCQ answer key. Total: 20 marks.
+\item MCQ explanations. Total: 20 marks.
 \begin{enumerate}
-\item B
-\item B
-\item B
-\item B
-\item A
-\item A
-\item B
-\item B
-\item A
-\item A
+\item \textbf{B.} ROUGE rewards overlap of words or n-grams with a reference summary, so it can miss correct paraphrases and semantic equivalence. This is why a semantically faithful summary can score poorly if it uses different wording. ROUGE can be computed on short summaries and does not require model parameters.
+\item \textbf{B.} A pointer-generator model combines two behaviours: generating from a fixed vocabulary and copying tokens from the source through attention. This is useful in summarisation because names, numbers, and rare source terms often need to be copied exactly. It is not purely extractive, and it does not remove attention.
+\item \textbf{B.} RoPE, or Rotary Position Embedding, is applied to query and key vectors because these determine attention scores. Rotating Q and K lets relative position appear through their angle difference. Values are the content being aggregated, so they are not the usual place where RoPE is applied.
+\item \textbf{B.} Position interpolation rescales longer position indices back into a range closer to what the model saw during pre-training. This is one way to extend RoPE-based models to longer contexts with less additional training. The tradeoff is that local position resolution can be compressed.
+\item \textbf{A.} Self-consistency samples multiple reasoning paths, usually with nonzero temperature, and aggregates the final answers. The idea is that independent reasoning attempts may cancel out individual mistakes. It is an inference-time method, not full fine-tuning.
+\item \textbf{A.} A Shapley value measures the average marginal contribution of a component across different subsets or orderings of components. In the coursework setting, the components are reasoning/formalisation steps and the payoff can be accuracy. It is not a translation metric or a language-model perplexity score.
+\item \textbf{B.} In knowledge distillation, a student model is trained to imitate useful outputs, distributions, rationales, or behaviours from a teacher model. The student is often smaller or cheaper to deploy. Distillation can copy teacher errors, so it is not automatically a guarantee of correctness.
+\item \textbf{B.} PEFT freezes most base-model parameters and trains a smaller set of task-specific parameters, such as adapters or LoRA matrices. This reduces training memory and checkpoint storage relative to full fine-tuning. It does not remove the need for data and is not guaranteed to prevent overfitting.
+\item \textbf{A.} Reward-based optimisation can lead to reward hacking: the policy learns to maximise the learned reward or preference model rather than the true desired behaviour. In language models this can produce outputs that look preferred but are not actually more correct or faithful. Evaluation is still necessary after RLHF.
+\item \textbf{A.} BPE-dropout randomly skips some merge operations during tokenisation, exposing the model to multiple possible segmentations. This can improve robustness, especially for rare words and morphologically rich languages. It is not a translation metric or watermarking method.
 \end{enumerate}
 \end{enumerate}
 

@@ -35,18 +35,18 @@
 \item Retrieval: recall@k, MRR, evidence relevance. Answer: exact match/F1 for factoid QA, human factuality, faithfulness, citation accuracy, LLM-as-judge with caution. Contamination/saturation: check benchmark overlap in corpus/training data; use fresh or private eval sets; inspect saturated benchmark performance separately. Award up to 2 marks.
 \end{enumerate}
 
-\item MCQ answer key. Total: 20 marks.
+\item MCQ explanations. Total: 20 marks.
 \begin{enumerate}
-\item B
-\item B
-\item C
-\item C
-\item A
-\item B
-\item C
-\item B
-\item C
-\item C
+\item \textbf{B.} ROUGE is based on lexical overlap with reference summaries, so it can underrate good paraphrases. BERTScore uses contextual embeddings and can reward semantic similarity such as ``film'' and ``movie''. It does not remove references, guarantee hallucination detection, or become human evaluation.
+\item \textbf{B.} Natural Questions contains real user questions from Google Search paired with Wikipedia evidence and annotations. This is why it is closer to open-domain QA than manually invented reading-comprehension questions. The other options confuse it with artificial datasets or yes/no-only QA.
+\item \textbf{C.} Moore-Lewis selection compares an in-domain language model with a general-domain language model. A sentence is useful when the in-domain model explains it better than the general model, often measured by a log-probability or cross-entropy difference. It is not simply choosing rare or diverse text.
+\item \textbf{C.} Reference-based COMET normally scores a system translation using the source sentence, the candidate translation, and a reference translation. This lets it estimate adequacy and quality beyond surface n-gram overlap. It is not computed from training loss or the translation alone in this standard setting.
+\item \textbf{A.} Contamination occurs when evaluation items or close variants appear in training or retrieval data. It can inflate benchmark scores because the model may memorise or have already seen the answer. It is not specific to reinforcement learning and does not necessarily reduce scores.
+\item \textbf{B.} Fusion-in-Decoder retrieves multiple passages, encodes them, and lets the decoder combine evidence while generating the answer. This differs from closed-book QA and from single-span extractive QA. The answer need not come from one copied span.
+\item \textbf{C.} The curse of multilinguality refers to interference and capacity/data-allocation tradeoffs in multilingual models. Adding languages can help through transfer, but fixed capacity and imbalanced data can hurt some languages. It does not mean multilingual transfer is impossible.
+\item \textbf{B.} LM Arena style evaluation asks users or judges to compare outputs pairwise, then turns those preferences into ratings such as Elo. It captures broad preference but is not the same as exact-match QA or perplexity evaluation. The result depends on prompts, users, and judge behaviour.
+\item \textbf{C.} Backtranslation uses real target-language monolingual data, translates it back into synthetic source text, and trains on the resulting pseudo-parallel pairs. Its value comes partly from exposing the model to fluent, in-domain target-language output. The synthetic source side can be imperfect.
+\item \textbf{C.} WEAT measures differential association between two target groups and two attribute sets in embedding space. In this example, it asks whether male names are closer to science terms relative to female names, compared with family terms. It is an embedding-bias test, not a frequency count or MT metric.
 \end{enumerate}
 \end{enumerate}
 

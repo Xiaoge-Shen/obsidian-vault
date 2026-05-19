@@ -13,6 +13,8 @@ They were generated from the 2026 exam guide, the selected NLU past-paper style 
 - `mock-paper-3.pdf`: Multimodal Models, Agents, Interpretability, Parsing, and Ethics
 - `mock-paper-3-mark-scheme.pdf`: indicative answer outline for Paper 3
 
+The mark schemes include expanded explanations for every multiple-choice question, including the relevant concept being tested.
+
 LaTeX source files are included beside each PDF so the papers can be edited and recompiled.
 
 Additional guidance:

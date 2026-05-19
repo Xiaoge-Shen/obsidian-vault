@@ -35,18 +35,18 @@
 \item Final success alone hides path quality and risk. Additional measures: intermediate progress, visual grounding accuracy, loop rate, number of actions, recovery/backtracking, unsafe action rate, latency, robustness to UI changes. Award up to 2 marks.
 \end{enumerate}
 
-\item MCQ answer key. Total: 20 marks.
+\item MCQ explanations. Total: 20 marks.
 \begin{enumerate}
-\item B
-\item C
-\item A
-\item A
-\item A
-\item A
-\item B
-\item A
-\item A
-\item C
+\item \textbf{B.} A vision encoder outputs visual feature vectors, while the LLM expects vectors in its own hidden/token embedding space. The connector or projector maps between these spaces so image information can be used as visual tokens or prefix representations. It is a cross-modal interface, not a storage or tokenisation replacement.
+\item \textbf{C.} In a Vision Transformer, images are split into patches, and each patch becomes a visual token. Higher resolution or smaller patch size usually means more patches, so the sequence is longer and attention/computation can increase. More visual tokens may help detail but cost more.
+\item \textbf{A.} A computer-use agent needs a termination action so it can indicate that the task is complete and stop acting. Without this, the agent may loop, continue unnecessary actions, or damage the state after success. Termination does not make actions reversible.
+\item \textbf{A.} Watermarking biases token choice toward detectable green-list tokens, but low-entropy states may have only one or very few plausible next tokens. Forcing a watermark there can hurt fluency or factuality, while not forcing it weakens detectability. This is a core quality-detectability tradeoff.
+\item \textbf{A.} Sparse autoencoders take dense model activations and learn a sparse, often overcomplete, feature representation. This can reveal more candidate features than the original activation dimension because features may be represented in superposition. SAEs do not prove every feature is cleanly monosemantic.
+\item \textbf{A.} Superposition is the idea that neural models can represent more features than they have dimensions by overlapping feature directions. This helps explain why individual neurons can be polysemantic. It is a representation phenomenon, not a parsing output.
+\item \textbf{B.} Dependency parsing represents syntactic structure as head-dependent relations between words. This contrasts with constituency parsing, which groups words into nested phrases. Dependency structures are often evaluated with attachment scores.
+\item \textbf{A.} When a model generates a linearised constituency tree, it may produce unmatched brackets or brackets whose nonterminal labels do not correspond. This is a structural validity issue caused by treating tree generation as sequence generation. Post-processing can help but may not fix typed-bracket mismatches.
+\item \textbf{A.} Allocational harm concerns unequal access to opportunities, resources, or services, such as worse model quality or decisions for a protected group. Representational harm concerns stereotypes, denigration, erasure, or biased portrayals. The distinction matters for choosing evaluation and mitigation strategies.
+\item \textbf{C.} A finite-state machine has finite memory and can recognise regular languages, but it lacks unbounded stack-like memory for nested or recursively structured dependencies. Pushdown automata and richer formalisms can model such structure more naturally. This limitation is why FSMs are weaker than models with unbounded memory.
 \end{enumerate}
 \end{enumerate}
 
