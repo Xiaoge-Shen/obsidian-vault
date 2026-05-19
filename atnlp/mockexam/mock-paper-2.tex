@@ -1,0 +1,155 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\pts}[1]{\hfill [#1 marks]}
+\newcommand{\markone}{\hfill [1 mark]}
+
+\begin{document}
+\emergencystretch=2em
+
+\begin{center}
+{\Large UNIVERSITY OF EDINBURGH}\\[0.3em]
+{\large SCHOOL OF INFORMATICS}\\[2em]
+{\Large INFR11287 ADVANCED TOPICS IN NATURAL LANGUAGE PROCESSING}\\[1em]
+{\Large Mock Examination Paper 2}\\[0.8em]
+{\large Adaptation, Reasoning, Long Context, Summarisation, and Safety}\\[2em]
+{\large Time allowed: 2 hours}\\[1em]
+\end{center}
+
+\noindent\textbf{INSTRUCTIONS TO CANDIDATES}
+\begin{enumerate}
+\item This is a practice paper, not an official examination paper.
+\item Answer all questions. Different questions may have different numbers of total marks.
+\item The paper is worth 50 marks in total.
+\item Notes, calculators, and dictionaries are not permitted in the real examination.
+\item Please answer concisely. Unless otherwise stated, do not write more than one or two sentences per mark assigned.
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}[leftmargin=*]
+
+\item A legal technology company wants to build an LLM system that summarises long contracts and answers follow-up questions about obligations, deadlines, and penalties. It has a small set of expert-written summaries, a larger set of unlabelled contracts, and a budget that is not large enough for repeated full fine-tuning of a 70B model.
+
+\begin{enumerate}
+\item Define the summarisation task in this setting. In your answer, distinguish extractive and abstractive summarisation, and explain one risk of using a purely abstractive model for legal text. \pts{3}
+
+\item The company considers instruction fine-tuning, RLHF-style preference optimisation, and the coursework-style use of verifiable rewards for reasoning tasks. Compare these approaches for this application, mentioning one benefit and one risk or limitation. \pts{4}
+
+\item The company decides to use LoRA. Write the basic low-rank update equation for a weight matrix \(W\), and explain how this can be applied to the query, key, and value matrices of a Transformer. State one training-cost advantage over full fine-tuning. \pts{4}
+
+\item A stronger proprietary model is available through an API. Explain how knowledge distillation could be used to improve the smaller in-house model, and note one risk of this distillation process. \pts{2}
+
+\item Describe an evaluation plan for the legal summarisation system. Your answer should include one automatic metric, one human evaluation component, and one failure mode that the evaluation must explicitly check. \pts{2}
+\end{enumerate}
+
+\newpage
+
+\item The same company later wants the model to read an entire 80-page contract in one prompt. Some clauses relevant to a question may appear near the beginning, some in the middle, and some near the end. The engineering team is considering long-context models, retrieval, and decoding-time reasoning methods.
+
+\begin{enumerate}
+\item Explain why Transformer models need positional encodings. Then compare sinusoidal positional encodings and RoPE in terms of how they represent position. \pts{4}
+
+\item RoPE-based models often require context-extension methods. Explain the intuition behind positional interpolation or YaRN, and state one tradeoff involved in extending the context window. \pts{3}
+
+\item Full attention becomes expensive for very long inputs. Explain why its cost grows quickly with sequence length, and describe one efficient-attention strategy that could reduce cost. \pts{2}
+
+\item Long context does not guarantee that the model uses all evidence equally well. Describe two ways you would evaluate whether the model can actually use information in the middle of a long contract. \pts{3}
+
+\item The team considers chain-of-thought prompting and self-consistency for clause-based reasoning. Explain how self-consistency works, and give one reason it might improve answers and one reason it might be unsuitable for deployment. \pts{3}
+\end{enumerate}
+
+\newpage
+
+\item The following are multiple choice questions. For each question, choose the answer that is the most correct. Each question is worth 2 marks. \pts{20}
+
+\begin{enumerate}
+\item A core weakness of ROUGE for summarisation evaluation is that:
+\begin{enumerate}[label=\Alph*.]
+\item It cannot be calculated on short summaries.
+\item It mainly measures lexical overlap and can miss semantic equivalence.
+\item It always rewards hallucinated content.
+\item It requires access to model parameters.
+\end{enumerate}
+
+\item A pointer-generator network in abstractive summarisation is useful because it:
+\begin{enumerate}[label=\Alph*.]
+\item Prevents the model from copying any source token.
+\item Can mix generating from a vocabulary with copying from the source.
+\item Replaces attention with a bag-of-words model.
+\item Is only used for extractive summarisation.
+\end{enumerate}
+
+\item RoPE is usually applied to:
+\begin{enumerate}[label=\Alph*.]
+\item The value vectors only.
+\item The query and key vectors used to compute attention scores.
+\item The tokeniser vocabulary.
+\item The final softmax layer only.
+\end{enumerate}
+
+\item Position interpolation for long context mainly tries to:
+\begin{enumerate}[label=\Alph*.]
+\item Remove all position information from the model.
+\item Map longer position indices into a range more familiar from pre-training.
+\item Replace all attention with convolution.
+\item Increase the number of parameters in every layer.
+\end{enumerate}
+
+\item In self-consistency prompting, the model usually:
+\begin{enumerate}[label=\Alph*.]
+\item Samples multiple reasoning paths and aggregates the final answers.
+\item Uses exactly one greedy chain-of-thought and never samples.
+\item Fine-tunes all model weights using human preferences.
+\item Removes all intermediate reasoning steps from the prompt.
+\end{enumerate}
+
+\item A Shapley value analysis of reasoning steps estimates:
+\begin{enumerate}[label=\Alph*.]
+\item The average marginal contribution of a step across possible subsets/orderings.
+\item The number of tokens in a prompt.
+\item The BLEU score of a translation system.
+\item The perplexity of a language model on Wikipedia.
+\end{enumerate}
+
+\item In knowledge distillation, the student model is trained to:
+\begin{enumerate}[label=\Alph*.]
+\item Always be larger than the teacher model.
+\item Imitate useful behaviour or outputs of a teacher model.
+\item Delete all teacher-generated examples after training.
+\item Use only hand-written grammar rules.
+\end{enumerate}
+
+\item The main training-time advantage of PEFT over full fine-tuning is that:
+\begin{enumerate}[label=\Alph*.]
+\item It removes the need for data.
+\item It trains fewer task-specific parameters and usually requires less memory.
+\item It prevents overfitting in all settings.
+\item It cannot be combined with instruction tuning.
+\end{enumerate}
+
+\item A core risk of RLHF or reward-based optimisation is:
+\begin{enumerate}[label=\Alph*.]
+\item The model may optimise the reward signal without improving the true target behaviour.
+\item It can only be used for machine translation.
+\item It prevents human preference data from being used.
+\item It removes the need to evaluate the resulting model.
+\end{enumerate}
+
+\item BPE-dropout is best understood as:
+\begin{enumerate}[label=\Alph*.]
+\item Randomly dropping possible merge operations to expose the model to varied segmentations.
+\item Removing all rare words from the vocabulary.
+\item A method for evaluating translation adequacy.
+\item A watermarking detector for generated text.
+\end{enumerate}
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

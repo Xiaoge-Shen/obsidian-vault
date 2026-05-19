@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+
+\begin{document}
+\emergencystretch=2em
+
+\begin{center}
+{\Large INFR11287 Advanced Topics in Natural Language Processing}\\[0.5em]
+{\Large Mock Examination Paper 3: Mark Scheme}\\[1em]
+\end{center}
+
+\noindent This mark scheme gives indicative points. Award credit for equivalent answers that demonstrate the same understanding.
+
+\begin{enumerate}[leftmargin=*]
+\item Vision-language assistant. Total: 15 marks.
+\begin{enumerate}
+\item The task requires connecting language to visual objects, regions, text in images, and situated context. It addresses grounding because meanings of words such as ``this'', labels, artefacts, and spatial relations depend on perception rather than text alone. Award up to 3 marks.
+\item Components: vision encoder converts image/patches into visual features; projector/connector maps visual features into the LLM hidden/token space; backbone LLM conditions on visual tokens and text to generate answers. Award up to 4 marks.
+\item Linear connector: cheap and stable but less expressive. MLP: more expressive with moderate cost and possible overfitting/initialisation issues. Attention-based connector: can select salient visual information but is costlier and harder to train. Award up to 3 marks.
+\item Data: exhibit images with captions, OCR labels, VQA pairs, referring expressions, multilingual labels, accessibility-oriented egocentric photos, expert-curated museum facts. Risks: licensing, privacy of visitors, cultural misrepresentation, hallucinated labels, domain shift from generic datasets. Award up to 3 marks.
+\item Intrinsic: captioning, OCR, VQA, object recognition, hallucination benchmarks. Extrinsic: visitor task success, answer usefulness, accessibility studies with visually impaired users, latency. Ethics/accessibility: wrong descriptions, cultural harms, privacy, overconfident unsafe guidance. Award up to 2 marks.
+\end{enumerate}
+
+\item Agents and computer use. Total: 15 marks.
+\begin{enumerate}
+\item An agent perceives an environment through sensors and acts through actuators. API design: observations are tool outputs/form states and actions are API calls. Browser design: observations are screenshots/OCR/accessibility trees and actions are clicks, typing, scrolling, navigation, and stopping. Award up to 3 marks.
+\item Text-only/API agent: more reliable and structured when APIs exist, easier validation; disadvantage is limited to available tools and schemas. Vision-based CUA: can operate across arbitrary GUIs; disadvantage is visual grounding, UI fragility, and action risk. Award up to 4 marks.
+\item \(I\) is the instruction/goal; \(s_t\) is the environment state at step \(t\), often a screenshot; \(a_t\) is the action such as click/type/scroll/terminate. History matters for tracking progress, avoiding repeated actions, recovering from mistakes, and interpreting state changes. Award up to 3 marks.
+\item Failure modes: clicking wrong button, stale UI after page changes, entering private data in wrong field, loops, irreversible cancellation/payment, prompt injection in webpage text. Mitigations: constrained action space, confirmations, sandboxing, API preference, state checks, logging, time/action limits, human approval for irreversible actions. Award up to 3 marks.
+\item Final success alone hides path quality and risk. Additional measures: intermediate progress, visual grounding accuracy, loop rate, number of actions, recovery/backtracking, unsafe action rate, latency, robustness to UI changes. Award up to 2 marks.
+\end{enumerate}
+
+\item MCQ answer key. Total: 20 marks.
+\begin{enumerate}
+\item B
+\item C
+\item A
+\item A
+\item A
+\item A
+\item B
+\item A
+\item A
+\item C
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

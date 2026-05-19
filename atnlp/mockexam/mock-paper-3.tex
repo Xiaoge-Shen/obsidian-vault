@@ -1,0 +1,159 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\pts}[1]{\hfill [#1 marks]}
+\newcommand{\markone}{\hfill [1 mark]}
+
+\begin{document}
+\emergencystretch=2em
+
+\begin{center}
+{\Large UNIVERSITY OF EDINBURGH}\\[0.3em]
+{\large SCHOOL OF INFORMATICS}\\[2em]
+{\Large INFR11287 ADVANCED TOPICS IN NATURAL LANGUAGE PROCESSING}\\[1em]
+{\Large Mock Examination Paper 3}\\[0.8em]
+{\large Multimodal Models, Agents, Interpretability, Parsing, and Ethics}\\[2em]
+{\large Time allowed: 2 hours}\\[1em]
+\end{center}
+
+\noindent\textbf{INSTRUCTIONS TO CANDIDATES}
+\begin{enumerate}
+\item This is a practice paper, not an official examination paper.
+\item Answer all questions. Different questions may have different numbers of total marks.
+\item The paper is worth 50 marks in total.
+\item Notes, calculators, and dictionaries are not permitted in the real examination.
+\item Please answer concisely. Unless otherwise stated, do not write more than one or two sentences per mark assigned.
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}[leftmargin=*]
+
+\item A museum wants to deploy a vision-language assistant. Visitors can take a photo of an exhibit or a label and ask questions such as ``What object is this?'', ``What does the label say?'', or ``Why is this artefact important?'' The museum wants the system to work for visually impaired visitors as well as general visitors.
+
+\begin{enumerate}
+\item Explain why this task illustrates perceptually grounded NLP rather than a purely text-only language task. Your answer should refer to visual grounding or the symbol grounding problem. \pts{3}
+
+\item Describe the main components of a modern VLM built using a backbone LLM. Explain the role of the vision encoder and the projector or connector layer. \pts{4}
+
+\item The team can choose between a simple linear connector, an MLP connector, and an attention-based connector. Compare these choices in terms of training stability, representational power, and computational cost. \pts{3}
+
+\item Describe the kinds of training data the museum might need beyond generic image-caption pairs. Include at least one task-specific data type and one risk in collecting or using this data. \pts{3}
+
+\item Propose an evaluation plan for the deployed assistant. Your answer should distinguish intrinsic VLM evaluation from extrinsic task evaluation, and mention one accessibility or ethics concern. \pts{2}
+\end{enumerate}
+
+\newpage
+
+\item The museum also wants an AI agent that can help staff book guided tours through several web forms. The agent may either use structured APIs or control a browser through screenshots, mouse clicks, and keyboard input. The museum is concerned about reliability, privacy, and irreversible mistakes.
+
+\begin{enumerate}
+\item Using the Russell and Norvig style definition, explain what makes this system an agent. Identify its sensors or observations and its actuators or actions in the two possible designs. \pts{3}
+
+\item Compare a text-only tool-using agent with a vision-based computer-use agent for this booking task. Give one advantage and one disadvantage of each. \pts{4}
+
+\item A vision-based computer-use agent is trained on trajectories of the form
+\[
+I, s_0, a_0, s_1, a_1, \ldots, s_T, a_T .
+\]
+Explain what \(I\), \(s_t\), and \(a_t\) represent, and why trajectory history matters. \pts{3}
+
+\item Describe two reliability or safety failure modes for this agent and one mitigation for each. At least one failure mode should involve the action space or UI state. \pts{3}
+
+\item The museum asks whether the agent should be evaluated only by final task success rate. Explain why this is insufficient and name two additional quantities or behaviours that should be evaluated. \pts{2}
+\end{enumerate}
+
+\newpage
+
+\item The following are multiple choice questions. For each question, choose the answer that is the most correct. Each question is worth 2 marks. \pts{20}
+
+\begin{enumerate}
+\item The connector in a visual-prefix VLM is necessary mainly because:
+\begin{enumerate}[label=\Alph*.]
+\item Image files are too large to store on disk.
+\item Vision encoder features must be mapped into a representation compatible with the LLM.
+\item The LLM must be removed before training.
+\item It replaces tokenisation for all text inputs.
+\end{enumerate}
+
+\item Increasing image resolution or decreasing patch size in a Vision Transformer usually:
+\begin{enumerate}[label=\Alph*.]
+\item Reduces the number of visual tokens.
+\item Has no effect on computational cost.
+\item Increases the number of visual tokens and therefore can increase attention cost.
+\item Prevents the model from doing OCR.
+\end{enumerate}
+
+\item In a computer-use agent, a termination action is important because:
+\begin{enumerate}[label=\Alph*.]
+\item The agent must know when to stop after achieving the goal.
+\item It removes the need for observing the screen.
+\item It makes all actions reversible.
+\item It prevents the user from specifying a task.
+\end{enumerate}
+
+\item A major difficulty for LLM watermarking in low-entropy decoding states is that:
+\begin{enumerate}[label=\Alph*.]
+\item There may be too few plausible token choices to impose a detectable watermark without hurting quality.
+\item Low entropy always makes watermark detection perfect.
+\item Watermarking only works for images.
+\item The detector no longer needs a key.
+\end{enumerate}
+
+\item Sparse autoencoders are useful in mechanistic interpretability because they can:
+\begin{enumerate}[label=\Alph*.]
+\item Map dense activations into a larger sparse set of candidate features.
+\item Prove that every neuron is monosemantic.
+\item Replace all evaluation benchmarks.
+\item Eliminate the need for model activations.
+\end{enumerate}
+
+\item Superposition refers to the idea that:
+\begin{enumerate}[label=\Alph*.]
+\item A model may represent more features than dimensions by overlapping features in activation space.
+\item A parser must always output two trees.
+\item All features correspond to single neurons.
+\item Every attention head has the same function.
+\end{enumerate}
+
+\item In a dependency parse, the main structure consists of:
+\begin{enumerate}[label=\Alph*.]
+\item Phrases nested inside larger phrases only.
+\item Head-dependent relations between words.
+\item A sequence of BPE merge operations.
+\item A list of retrieved documents.
+\end{enumerate}
+
+\item In constituency parsing by generating a linearised tree, a common validity problem is:
+\begin{enumerate}[label=\Alph*.]
+\item The model may produce unmatched or incorrectly typed brackets.
+\item The model cannot output words.
+\item Dynamic programming must be used at inference time.
+\item The output cannot contain nonterminals.
+\end{enumerate}
+
+\item Allocational harm differs from representational harm because allocational harm concerns:
+\begin{enumerate}[label=\Alph*.]
+\item Unequal distribution of opportunities or resources.
+\item Only whether a stereotype appears in an embedding space.
+\item Whether a model uses RoPE.
+\item The number of tokens in a prompt.
+\end{enumerate}
+
+\item A finite-state machine is limited, compared with richer formalisms, because it:
+\begin{enumerate}[label=\Alph*.]
+\item Cannot represent all regular languages.
+\item Has no finite set of states.
+\item Does not have unbounded stack-like memory for nested dependencies.
+\item Is identical to a Transformer with full attention.
+\end{enumerate}
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

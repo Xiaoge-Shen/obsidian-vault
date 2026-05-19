@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+
+\begin{document}
+\emergencystretch=2em
+
+\begin{center}
+{\Large INFR11287 Advanced Topics in Natural Language Processing}\\[0.5em]
+{\Large Mock Examination Paper 1: Mark Scheme}\\[1em]
+\end{center}
+
+\noindent This mark scheme gives indicative points. Award credit for equivalent answers that demonstrate the same understanding.
+
+\begin{enumerate}[leftmargin=*]
+\item Low-resource MT, data, and evaluation. Total: 15 marks.
+\begin{enumerate}
+\item Web parallel extraction: identify Yoruba/English pages using language ID and metadata; find candidate comparable pages using URLs, document structure, links, or embeddings; align at sentence/segment level using sentence embeddings or MT-based scoring; filter noisy pairs by length, language, duplication, and alignment confidence. Award up to 3 marks.
+\item Monolingual data: backtranslation from real Yoruba into synthetic English, then train English->Yoruba; self-training or forward translation with filtering; language-model or continued pretraining on Yoruba text; LLM-assisted synthetic pairs with terminology constraints. Quality control may include round-trip checks, length ratios, COMET/quality-estimation, terminology checks, and human review. Award up to 4 marks.
+\item Quality selection: remove noisy, toxic, duplicated, boilerplate, or language-mixed text. Diversity selection: deduplicate and balance topics/registers so all health subdomains are represented. Importance selection: choose text most useful for medical translation, e.g. Moore-Lewis selection with a medical in-domain model. Award up to 3 marks.
+\item Advantage: transfer from a trained encoder-decoder and shared subword units can help English-side modelling and reuse parameters. Problem: vocabulary capacity may be dominated by high-resource English/German, causing poor segmentation for Yoruba morphology or characters. Award 2 marks.
+\item Automatic metrics: BLEU, chrF, COMET, or terminology accuracy on held-out data. Human evaluation: bilingual clinical/domain review for adequacy, fluency, terminology, and harmful errors. Ethical/social harm: mistranslated health advice, unequal quality for low-resource users, asylum/medical harm, loss of trust; mention mitigation such as expert review or abstention. Award up to 3 marks.
+\end{enumerate}
+
+\item RAG and open-domain QA. Total: 15 marks.
+\begin{enumerate}
+\item Advantage: updateable, source-grounded, citeable, domain-specific evidence. Disadvantages: retrieval can miss relevant evidence, retrieved documents can be stale/biased/noisy, generator can ignore or hallucinate over evidence, system is more complex. Award up to 4 marks.
+\item Sparse retrieval: strong for exact terms, rare entities, lexical matches; weak for paraphrase. Dense retrieval: stronger semantic matching and paraphrase; can miss exact rare terms and needs embedding training. Hybrid and reranking combine recall with precision, especially for multilingual and factual QA. Award up to 3 marks.
+\item Problems: translation errors in query or answer, lost cultural/local terms, retrieval from English sources may omit Arabic-local facts, answer may be fluent but unsupported. Ethical risk: inferior service for Arabic users, misinformation, cultural erasure, health/political harms. Award up to 3 marks.
+\item Direct non-English indexing: preserves local language content and local facts, but needs multilingual retrieval and uneven corpus quality. Translate-then-index: allows one English index and model pipeline, but introduces translation errors, cost, and loss of source nuance. Award up to 3 marks.
+\item Retrieval: recall@k, MRR, evidence relevance. Answer: exact match/F1 for factoid QA, human factuality, faithfulness, citation accuracy, LLM-as-judge with caution. Contamination/saturation: check benchmark overlap in corpus/training data; use fresh or private eval sets; inspect saturated benchmark performance separately. Award up to 2 marks.
+\end{enumerate}
+
+\item MCQ answer key. Total: 20 marks.
+\begin{enumerate}
+\item B
+\item B
+\item C
+\item C
+\item A
+\item B
+\item C
+\item B
+\item C
+\item C
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

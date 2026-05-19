@@ -1,0 +1,155 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\pts}[1]{\hfill [#1 marks]}
+\newcommand{\markone}{\hfill [1 mark]}
+
+\begin{document}
+\emergencystretch=2em
+
+\begin{center}
+{\Large UNIVERSITY OF EDINBURGH}\\[0.3em]
+{\large SCHOOL OF INFORMATICS}\\[2em]
+{\Large INFR11287 ADVANCED TOPICS IN NATURAL LANGUAGE PROCESSING}\\[1em]
+{\Large Mock Examination Paper 1}\\[0.8em]
+{\large Retrieval, Question Answering, Data, Translation, and Evaluation}\\[2em]
+{\large Time allowed: 2 hours}\\[1em]
+\end{center}
+
+\noindent\textbf{INSTRUCTIONS TO CANDIDATES}
+\begin{enumerate}
+\item This is a practice paper, not an official examination paper.
+\item Answer all questions. Different questions may have different numbers of total marks.
+\item The paper is worth 50 marks in total.
+\item Notes, calculators, and dictionaries are not permitted in the real examination.
+\item Please answer concisely. Unless otherwise stated, do not write more than one or two sentences per mark assigned.
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}[leftmargin=*]
+
+\item You are working with a public health organisation that wants to build a machine translation and data pipeline for English, Swahili, and Yoruba. The organisation has a small amount of English-Swahili and English-Yoruba parallel text, a larger collection of monolingual Swahili and Yoruba health pages, and a very large general web crawl. It wants to support reliable translation of health advice for local clinics.
+
+\begin{enumerate}
+\item Describe the major steps you would take to create additional parallel English-Yoruba data from the web crawl. Include how you would identify candidate documents and how you would decide whether sentence pairs are parallel. \pts{3}
+
+\item The first English-Yoruba translation model trained on the small parallel corpus performs poorly. Explain two ways in which the monolingual Yoruba data could be used to improve the English to Yoruba system. For each method, note one quality-control step. \pts{4}
+
+\item The organisation also wants to select Swahili medical text from the large general crawl. Explain the difference between quality-based, diversity-based, and importance-based data selection, giving one suitable example of each for this setting. \pts{3}
+
+\item The team considers initialising the Yoruba model from a high-resource German-English translation model and training a shared BPE vocabulary over English, German, and Yoruba. State one advantage and one possible problem with this multilingual BPE strategy. \pts{2}
+
+\item Describe an evaluation plan for the final health translation system. Your answer should include at least one automatic metric, one human evaluation component, and one possible ethical or social harm if the model is deployed without adequate evaluation. \pts{3}
+\end{enumerate}
+
+\newpage
+
+\item Alex is building an open-domain question answering system for an international fact-checking service. The system should answer questions using Wikipedia, official reports, and local-language news sources. Alex proposes to use a retrieval augmented generation system rather than simply asking a large language model that was pre-trained on web data.
+
+\begin{enumerate}
+\item Explain one advantage and two disadvantages of using RAG rather than relying only on the parametric knowledge of the language model. \pts{4}
+
+\item Alex has to choose between sparse retrieval, dense retrieval, and a hybrid retriever. Compare sparse and dense retrieval in this setting, and explain why a hybrid system with reranking might be useful. \pts{3}
+
+\item For Arabic-speaking users, the first prototype translates the Arabic question into English, retrieves only English documents, generates an English answer, and translates the answer back into Arabic. Describe two problems with the quality of answers this pipeline might produce, and one ethical risk. \pts{3}
+
+\item Alex considers two alternatives: indexing non-English Wikipedia directly, or translating all non-English documents into English before indexing. Give one advantage and one disadvantage of each approach. \pts{3}
+
+\item Describe how you would evaluate this QA system. Your answer should include retrieval evaluation, answer evaluation, and at least one check for contamination or benchmark saturation. \pts{2}
+\end{enumerate}
+
+\newpage
+
+\item The following are multiple choice questions. For each question, choose the answer that is the most correct. Each question is worth 2 marks. \pts{20}
+
+\begin{enumerate}
+\item Compared to ROUGE, BERTScore can improve automatic evaluation of summaries because:
+\begin{enumerate}[label=\Alph*.]
+\item It never requires reference summaries.
+\item It can give credit for semantic similarity without exact lexical overlap.
+\item It is guaranteed to detect hallucinations.
+\item It is a human evaluation protocol rather than an automatic metric.
+\end{enumerate}
+
+\item Which statement about the Natural Questions dataset is true?
+\begin{enumerate}[label=\Alph*.]
+\item It consists only of manually invented questions with no connection to real search queries.
+\item It includes naturally occurring Google Search questions with Wikipedia evidence.
+\item It only contains yes/no questions.
+\item It is a summarisation benchmark rather than a QA benchmark.
+\end{enumerate}
+
+\item Moore-Lewis data selection is best described as selecting examples that:
+\begin{enumerate}[label=\Alph*.]
+\item Have the lowest probability under every language model.
+\item Are maximally different from the target domain.
+\item Are explained better by an in-domain language model than by a general-domain language model.
+\item Have the highest number of unique tokens, regardless of domain.
+\end{enumerate}
+
+\item The usual input to a reference-based COMET evaluation model includes:
+\begin{enumerate}[label=\Alph*.]
+\item Only the translated sentence.
+\item Only the source sentence and the model parameters.
+\item The source sentence, the system translation, and a reference translation.
+\item The training loss and validation perplexity of the MT system.
+\end{enumerate}
+
+\item Benchmark contamination is a problem because it can:
+\begin{enumerate}[label=\Alph*.]
+\item Make test scores appear better than the model's true generalisation.
+\item Prevent any model from using chain-of-thought prompting.
+\item Only affect models trained with reinforcement learning.
+\item Always reduce evaluation scores.
+\end{enumerate}
+
+\item In Fusion-in-Decoder style open-domain QA:
+\begin{enumerate}[label=\Alph*.]
+\item Retrieval is not used.
+\item Candidate passages are encoded and the decoder fuses information while generating the answer.
+\item The answer must be a span copied from a single passage.
+\item All facts must be stored in the model parameters.
+\end{enumerate}
+
+\item The ``curse of multilinguality'' refers to the observation that:
+\begin{enumerate}[label=\Alph*.]
+\item Multilingual models can never transfer between languages.
+\item Adding more languages always improves every language equally.
+\item Fixed model capacity and unbalanced data can cause interference or weaker performance for some languages.
+\item Evaluation in English is impossible for multilingual models.
+\end{enumerate}
+
+\item LM Arena style evaluation usually relies on:
+\begin{enumerate}[label=\Alph*.]
+\item Exact string matching against a gold answer.
+\item Pairwise user preferences converted into a rating such as Elo.
+\item Calculating token-level perplexity on Wikipedia.
+\item Measuring only training speed.
+\end{enumerate}
+
+\item Backtranslation is useful in low-resource MT primarily because:
+\begin{enumerate}[label=\Alph*.]
+\item It removes the need for any target-language data.
+\item It guarantees perfect synthetic source sentences.
+\item It creates pseudo-parallel data whose target side can come from real monolingual target-language text.
+\item It evaluates translation quality without a reference.
+\end{enumerate}
+
+\item In the Word Embedding Association Test with male and female names, science terms, and family terms, the test is mainly measuring:
+\begin{enumerate}[label=\Alph*.]
+\item Whether all names are equally frequent in the corpus.
+\item Whether the embedding dimension is large enough.
+\item Whether one target group is more strongly associated with one attribute set than another target group is.
+\item Whether an MT system preserves named entities.
+\end{enumerate}
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

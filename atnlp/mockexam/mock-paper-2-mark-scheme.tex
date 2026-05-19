@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+
+\begin{document}
+\emergencystretch=2em
+
+\begin{center}
+{\Large INFR11287 Advanced Topics in Natural Language Processing}\\[0.5em]
+{\Large Mock Examination Paper 2: Mark Scheme}\\[1em]
+\end{center}
+
+\noindent This mark scheme gives indicative points. Award credit for equivalent answers that demonstrate the same understanding.
+
+\begin{enumerate}[leftmargin=*]
+\item Legal summarisation and adaptation. Total: 15 marks.
+\begin{enumerate}
+\item Task: input long contract, output concise faithful summary or answers about obligations. Extractive copies/selects source spans; abstractive generates new wording. Legal risk: hallucination, omission, changed modality/obligation, or misleading paraphrase. Award up to 3 marks.
+\item Instruction tuning teaches task format and domain behaviour from supervised examples. Preference optimisation can align helpfulness and style, but it risks reward hacking or over-optimising preferences. Verifiable rewards are suitable when correctness can be automatically checked, but less straightforward for legal nuance. Award up to 4 marks.
+\item LoRA: \(W' = W + \Delta W\), with \(\Delta W = BA\) or \(\Delta W = (\alpha/r)BA\), where rank \(r\) is small. Apply separate low-rank updates to \(W_q\), \(W_k\), and \(W_v\) while freezing the base weights. Advantage: fewer trainable parameters, lower optimizer memory, and smaller task-specific checkpoints. Award up to 4 marks.
+\item Distillation: use the proprietary teacher to generate summaries, rationales, labels, preferences, or corrections, then train the smaller model on those outputs. Risk: teacher hallucinations, hidden bias, privacy/API dependence, or style imitation without understanding. Award up to 2 marks.
+\item Automatic: ROUGE, BERTScore, factuality metric, citation/evidence overlap. Human: legal expert review for faithfulness, coverage, usefulness. Failure mode: hallucinated clauses, missing obligations, wrong dates, unsupported answers, long-context omissions. Award up to 2 marks.
+\end{enumerate}
+
+\item Long context and reasoning. Total: 15 marks.
+\begin{enumerate}
+\item Transformers process tokens in parallel and therefore need position information. Sinusoidal encodings add fixed sine/cosine position vectors to token embeddings. RoPE rotates query/key representations by a position-dependent angle so relative position appears in attention scores. Award up to 4 marks.
+\item Positional interpolation compresses long position indices into the range seen in pre-training; YaRN uses different interpolation behaviour for different frequency/wavelength bands. Tradeoff: enables longer windows cheaply but may reduce local resolution, change attention behaviour, or still require fine-tuning. Award up to 3 marks.
+\item Full attention computes interactions between all token pairs, producing an \(n \times n\) attention matrix, so cost/memory grow roughly quadratically with sequence length. Efficient strategies include sliding-window attention, sparse/global tokens, dilated attention, retrieval/chunking, or memory-efficient kernels. Award up to 2 marks.
+\item Evaluate with needle-in-the-haystack variants at different depths, queries requiring middle evidence, multi-hop clauses from separated positions, distractors, citation faithfulness, and lost-in-the-middle analysis. Award up to 3 marks.
+\item Self-consistency samples several reasoning traces, often with nonzero temperature, and aggregates final answers by majority or scoring. It can improve robustness by reducing dependence on one flawed chain. It is costly, can produce plausible false rationales, and may be inappropriate when latency or auditability matters. Award up to 3 marks.
+\end{enumerate}
+
+\item MCQ answer key. Total: 20 marks.
+\begin{enumerate}
+\item B
+\item B
+\item B
+\item B
+\item A
+\item A
+\item B
+\item B
+\item A
+\item A
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
