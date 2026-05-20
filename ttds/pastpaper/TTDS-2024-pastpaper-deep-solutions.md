@@ -19,6 +19,10 @@ colorlinks: true
 
 # Question 1: Preprocessing, Crawling, Permuterm, Compression
 
+## Original question screenshot
+
+![Original question page for 2024 Question 1](original-question-screenshots/ttds-2024-page-2.png){height=0.78\textheight}
+
 ## 原题要点
 
 考 `stemming`、`removing non-alphanumeric characters`、`web crawling`、`permuterm index`、`politeness vs freshness`、`v-byte decoding + delta decoding`。
@@ -89,6 +93,10 @@ $$
 `v-byte` 先解出 gaps，不是直接得到 postings list。恢复 postings list 要做 cumulative sum。
 
 # Question 2: IR Evaluation
+
+## Original question screenshot
+
+![Original question page for 2024 Question 2](original-question-screenshots/ttds-2024-page-3.png){height=0.78\textheight}
 
 ## 原题要点
 
@@ -217,6 +225,10 @@ Highest nDCG@1: **S3**.
 For `nDCG@2`, S1 ranks D,A gains [2,3], S4 ranks E,C gains [2,2], S5 ranks C,N gains [2,0], S3 ranks A,N gains [3,0], S2 ranks N,E gains [0,2]. Highest is **S1**.
 
 # Question 3: tf-idf, Jaccard, LM, Rocchio
+
+## Original question screenshot
+
+![Original question page for 2024 Question 3](original-question-screenshots/ttds-2024-page-4.png){height=0.78\textheight}
 
 ## 原题要点
 
@@ -362,6 +374,10 @@ Interpretation: feedback moves the query away from d1’s repeated `brown fox` a
 
 # Question 4: Expected Mutual Information
 
+## Original question screenshot
+
+![Original question page for 2024 Question 4](original-question-screenshots/ttds-2024-page-5.png){height=0.78\textheight}
+
 ## 原题要点
 
 Compute MI for `apple` with `Tech`, and `llama` with `Tech`, then compare frequency vs MI.
@@ -428,6 +444,10 @@ Reason: MI measures association, not just raw within-class frequency. `llama` ap
 
 # Question 5: Manual Content Analysis and Automation
 
+## Original question screenshot
+
+![Original question page for 2024 Question 5](original-question-screenshots/ttds-2024-page-5.png){height=0.78\textheight}
+
 ## (a) Manual content analysis
 
 Manual content analysis means researchers define a coding scheme/categories, sample documents, train human coders, annotate documents, check inter-annotator agreement, refine coding guidelines, then analyse counts/patterns.
@@ -441,6 +461,12 @@ Example: classifying millions of tweets as customer complaints vs praise. It mak
 Example: high-stakes legal judgement or subtle qualitative interpretation of political rhetoric. It may not make sense because context is complex, labels require expert judgement, and errors have serious consequences.
 
 # Question 6: Topic Modelling and Classification Short Answers
+
+## Original question screenshot
+
+![Original question page for 2024 Question 6 part 1](original-question-screenshots/ttds-2024-page-5.png){height=0.78\textheight}
+
+![Original question page for 2024 Question 6 part 2](original-question-screenshots/ttds-2024-page-6.png){height=0.78\textheight}
 
 ## (a) Unigram model vs mixture of unigrams
 
@@ -466,6 +492,10 @@ Modern pretrained models often use subword tokenisation such as BPE/WordPiece, s
 `Zero-shot classification` means classifying examples into labels without task-specific labelled training examples for those labels. It is useful when labelled data is scarce, classes change often, or we want rapid deployment using natural-language label descriptions.
 
 # Question 7: Query Logs and Click-through Data
+
+## Original question screenshot
+
+![Original question page for 2024 Question 7](original-question-screenshots/ttds-2024-page-6.png){height=0.78\textheight}
 
 ## 原题要点
 

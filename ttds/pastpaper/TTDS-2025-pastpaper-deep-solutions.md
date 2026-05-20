@@ -19,6 +19,10 @@ colorlinks: true
 
 # Question 1: Mixed Short/Calculation Questions
 
+## Original question screenshot
+
+![Original question page for 2025 Question 1](original-question-screenshots/ttds-2025-page-2.png){height=0.78\textheight}
+
 ## 原题要点
 
 考 `stopping`、`removing URLs`、LLM vs search engines、log base in TFIDF、Heap's law、nDCG/MRR、crawler freshness/security、RAG encoder update cost。
@@ -125,6 +129,10 @@ In dense retrieval/RAG, document embeddings are precomputed using the document e
 
 # Question 2: Non-deterministic Positional Inverted Index for ASR
 
+## Original question screenshot
+
+![Original question page for 2025 Question 2](original-question-screenshots/ttds-2025-page-3.png){height=0.78\textheight}
+
 ## 原题要点
 
 ASR has poor 1-best performance but top-4 candidates per word position often contain the correct word. Need design a positional inverted index that stores candidate terms with probabilities.
@@ -199,6 +207,10 @@ Compared with indexing only the most probable ASR word, this system should impro
 
 # Question 3: Expected Mutual Information
 
+## Original question screenshot
+
+![Original question page for 2025 Question 3](original-question-screenshots/ttds-2025-page-4.png){height=0.78\textheight}
+
 ## 原题要点
 
 Compute MI for word `heart` and genre `Hip-hop`.
@@ -237,6 +249,10 @@ The value is low. `heart` is not strongly associated with Hip-hop; it appears ac
 
 # Question 4: Short Answers
 
+## Original question screenshot
+
+![Original question page for 2025 Question 4](original-question-screenshots/ttds-2025-page-4.png){height=0.78\textheight}
+
 ## (a) What is latent in LDA?
 
 In LDA, `latent` refers to hidden variables not directly observed:
@@ -270,6 +286,10 @@ LDA outputs topics as word distributions, not human-readable labels. Topic label
 Need both because tuning on test data contaminates the final estimate.
 
 # Question 5: PageRank without Teleportation
+
+## Original question screenshot
+
+![Original question page for 2025 Question 5](original-question-screenshots/ttds-2025-page-5.png){height=0.78\textheight}
 
 ## 原题要点
 
@@ -325,6 +345,10 @@ $$
 Teleportation prevents rank sinks, dead ends, and disconnected components from trapping the random surfer. Without teleportation, PageRank may fail to reflect global importance or may concentrate inside cycles. In this particular graph there is no dangling node, but teleportation is still generally used for robustness and convergence to a unique stationary distribution.
 
 # Question 6: Coding Assistant RAG Design
+
+## Original question screenshot
+
+![Original question page for 2025 Question 6](original-question-screenshots/ttds-2025-page-5.png){height=0.78\textheight}
 
 ## 原题要点
 
