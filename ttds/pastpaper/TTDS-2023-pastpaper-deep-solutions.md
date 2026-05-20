@@ -11,6 +11,8 @@ CJKmainfont: "Heiti SC"
 mainfont: "Helvetica Neue"
 monofont: "Menlo"
 colorlinks: true
+header-includes:
+  - \usepackage{graphicx}
 ---
 
 # 使用方式
@@ -21,7 +23,7 @@ colorlinks: true
 
 ## Original question screenshot
 
-![Original question page for 2023 Question 1](original-question-screenshots/ttds-2023-page-2.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2023-page-2.png}
 
 ## 原题要点
 
@@ -63,11 +65,13 @@ colorlinks: true
 
 Short-answer 不要写散文。格式可用：`Term = definition + why it matters + one caveat/example`。
 
+\newpage
+
 # Question 2: PageRank Computation
 
 ## Original question screenshot
 
-![Original question page for 2023 Question 2](original-question-screenshots/ttds-2023-page-2.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2023-page-2.png}
 
 ## 原题要点
 
@@ -115,11 +119,13 @@ Iteration 2:
 
 不要把 page 的 PageRank 全部给每条 outlink；要除以 out-degree。也不要忘记 teleportation base。
 
-# Question 3: Will ChatGPT Replace Web Search?
+\newpage
+
+# Question 3: Will ChatGPT Replace Web Search
 
 ## Original question screenshot
 
-![Original question page for 2023 Question 3](original-question-screenshots/ttds-2023-page-2.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2023-page-2.png}
 
 ## 原题要点
 
@@ -147,11 +153,13 @@ Iteration 2:
 
 我会写：LLMs complement rather than fully replace web search。Search engines provide freshness、coverage、source attribution and navigational access；LLMs provide synthesis and conversational interaction。Best system is often RAG-like: retrieval for evidence, generation for explanation.
 
+\newpage
+
 # Question 4: IR Evaluation Metrics
 
 ## Original question screenshot
 
-![Original question page for 2023 Question 4](original-question-screenshots/ttds-2023-page-3.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2023-page-3.png}
 
 ## 原题要点
 
@@ -218,11 +226,13 @@ $$
 
 适合用户几乎只看 top 10，且 rank 10 之后价值近似为 0 的场景，如 web search first page、mobile search、answer recommendation。它比 log discount 更 harshly penalise late relevant documents。
 
+\newpage
+
 # Question 5: Expected Mutual Information
 
 ## Original question screenshot
 
-![Original question page for 2023 Question 5](original-question-screenshots/ttds-2023-page-4.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2023-page-4.png}
 
 ## 原题要点
 
@@ -267,11 +277,13 @@ $$
 
 MI 不是只看 $N_{11}$。一个 word 即使在某 class 里出现不少，如果它在其他 classes 也常出现，MI 不一定高。
 
+\newpage
+
 # Question 6: More Short Answers
 
 ## Original question screenshot
 
-![Original question page for 2023 Question 6](original-question-screenshots/ttds-2023-page-4.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2023-page-4.png}
 
 ## (a) MI under independence
 
@@ -308,13 +320,15 @@ $$
 
 如果用 test set 调参，test performance 会被污染，失去真实泛化估计。
 
+\newpage
+
 # Question 7: Bias in Sentiment Classifier
 
 ## Original question screenshot
 
-![Original question page for 2023 Question 7 part 1](original-question-screenshots/ttds-2023-page-4.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2023-page-4.png}
 
-![Original question page for 2023 Question 7 part 2](original-question-screenshots/ttds-2023-page-5.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2023-page-5.png}
 
 ## 原题要点
 
@@ -348,11 +362,13 @@ Google sentiment system 对 identity terms 给出不同 sentiment，即使 human
 
 人工审核高风险 outputs、domain-specific retraining、remove/protect sensitive attributes。但简单删除 identity terms 会损失语义，也不能解决 proxy bias。
 
+\newpage
+
 # Question 8: Misinformation Classifier Evaluation
 
 ## Original question screenshot
 
-![Original question page for 2023 Question 8](original-question-screenshots/ttds-2023-page-5.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2023-page-5.png}
 
 ## 原题要点
 

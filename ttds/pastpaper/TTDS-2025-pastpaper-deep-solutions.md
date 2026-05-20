@@ -11,6 +11,8 @@ CJKmainfont: "Heiti SC"
 mainfont: "Helvetica Neue"
 monofont: "Menlo"
 colorlinks: true
+header-includes:
+  - \usepackage{graphicx}
 ---
 
 # 使用方式
@@ -21,7 +23,7 @@ colorlinks: true
 
 ## Original question screenshot
 
-![Original question page for 2025 Question 1](original-question-screenshots/ttds-2025-page-2.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2025-page-2.png}
 
 ## 原题要点
 
@@ -127,11 +129,13 @@ Key mechanism: `freshness/re-crawling` plus change detection. Spiders revisit pa
 
 In dense retrieval/RAG, document embeddings are precomputed using the document encoder and stored in a vector database. Updating the document encoder means all document embeddings become stale and the whole corpus must be re-embedded and re-indexed, which is expensive at scale. Updating query encoder or reranker is often more practical.
 
+\newpage
+
 # Question 2: Non-deterministic Positional Inverted Index for ASR
 
 ## Original question screenshot
 
-![Original question page for 2025 Question 2](original-question-screenshots/ttds-2025-page-3.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2025-page-3.png}
 
 ## 原题要点
 
@@ -205,11 +209,13 @@ If no stemming/singular-plural conflation is used, only exact `job` contributes 
 
 Compared with indexing only the most probable ASR word, this system should improve recall because correct words that are not top-1 can still be retrieved. Precision may decrease because extra candidate terms add false matches. Probability-aware ranking can recover some precision by downweighting uncertain candidates.
 
+\newpage
+
 # Question 3: Expected Mutual Information
 
 ## Original question screenshot
 
-![Original question page for 2025 Question 3](original-question-screenshots/ttds-2025-page-4.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2025-page-4.png}
 
 ## 原题要点
 
@@ -247,11 +253,13 @@ $$
 
 The value is low. `heart` is not strongly associated with Hip-hop; it appears across many genres. MI rewards class-specific association, not raw frequency alone.
 
+\newpage
+
 # Question 4: Short Answers
 
 ## Original question screenshot
 
-![Original question page for 2025 Question 4](original-question-screenshots/ttds-2025-page-4.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2025-page-4.png}
 
 ## (a) What is latent in LDA?
 
@@ -285,11 +293,13 @@ LDA outputs topics as word distributions, not human-readable labels. Topic label
 
 Need both because tuning on test data contaminates the final estimate.
 
+\newpage
+
 # Question 5: PageRank without Teleportation
 
 ## Original question screenshot
 
-![Original question page for 2025 Question 5](original-question-screenshots/ttds-2025-page-5.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2025-page-5.png}
 
 ## 原题要点
 
@@ -344,11 +354,13 @@ $$
 
 Teleportation prevents rank sinks, dead ends, and disconnected components from trapping the random surfer. Without teleportation, PageRank may fail to reflect global importance or may concentrate inside cycles. In this particular graph there is no dangling node, but teleportation is still generally used for robustness and convergence to a unique stationary distribution.
 
+\newpage
+
 # Question 6: Coding Assistant RAG Design
 
 ## Original question screenshot
 
-![Original question page for 2025 Question 6](original-question-screenshots/ttds-2025-page-5.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2025-page-5.png}
 
 ## 原题要点
 

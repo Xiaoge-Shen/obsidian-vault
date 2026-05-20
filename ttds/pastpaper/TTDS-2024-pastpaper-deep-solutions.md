@@ -11,6 +11,8 @@ CJKmainfont: "Heiti SC"
 mainfont: "Helvetica Neue"
 monofont: "Menlo"
 colorlinks: true
+header-includes:
+  - \usepackage{graphicx}
 ---
 
 # 使用方式
@@ -21,7 +23,7 @@ colorlinks: true
 
 ## Original question screenshot
 
-![Original question page for 2024 Question 1](original-question-screenshots/ttds-2024-page-2.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2024-page-2.png}
 
 ## 原题要点
 
@@ -92,11 +94,13 @@ $$
 
 `v-byte` 先解出 gaps，不是直接得到 postings list。恢复 postings list 要做 cumulative sum。
 
+\newpage
+
 # Question 2: IR Evaluation
 
 ## Original question screenshot
 
-![Original question page for 2024 Question 2](original-question-screenshots/ttds-2024-page-3.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2024-page-3.png}
 
 ## 原题要点
 
@@ -224,11 +228,13 @@ Highest nDCG@1: **S3**.
 
 For `nDCG@2`, S1 ranks D,A gains [2,3], S4 ranks E,C gains [2,2], S5 ranks C,N gains [2,0], S3 ranks A,N gains [3,0], S2 ranks N,E gains [0,2]. Highest is **S1**.
 
+\newpage
+
 # Question 3: tf-idf, Jaccard, LM, Rocchio
 
 ## Original question screenshot
 
-![Original question page for 2024 Question 3](original-question-screenshots/ttds-2024-page-4.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2024-page-4.png}
 
 ## 原题要点
 
@@ -372,11 +378,13 @@ Thus:
 
 Interpretation: feedback moves the query away from d1’s repeated `brown fox` and toward d7’s terms `watch`, `run`, `jump`. Negative weights are sometimes clipped in practical systems.
 
+\newpage
+
 # Question 4: Expected Mutual Information
 
 ## Original question screenshot
 
-![Original question page for 2024 Question 4](original-question-screenshots/ttds-2024-page-5.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2024-page-5.png}
 
 ## 原题要点
 
@@ -442,11 +450,13 @@ $$
 
 Reason: MI measures association, not just raw within-class frequency. `llama` appears often in Animals too, so it is less specifically associated with Tech. `apple` is more distinctive for Tech relative to its overall distribution.
 
+\newpage
+
 # Question 5: Manual Content Analysis and Automation
 
 ## Original question screenshot
 
-![Original question page for 2024 Question 5](original-question-screenshots/ttds-2024-page-5.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2024-page-5.png}
 
 ## (a) Manual content analysis
 
@@ -460,13 +470,15 @@ Example: classifying millions of tweets as customer complaints vs praise. It mak
 
 Example: high-stakes legal judgement or subtle qualitative interpretation of political rhetoric. It may not make sense because context is complex, labels require expert judgement, and errors have serious consequences.
 
+\newpage
+
 # Question 6: Topic Modelling and Classification Short Answers
 
 ## Original question screenshot
 
-![Original question page for 2024 Question 6 part 1](original-question-screenshots/ttds-2024-page-5.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2024-page-5.png}
 
-![Original question page for 2024 Question 6 part 2](original-question-screenshots/ttds-2024-page-6.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2024-page-6.png}
 
 ## (a) Unigram model vs mixture of unigrams
 
@@ -491,11 +503,13 @@ Modern pretrained models often use subword tokenisation such as BPE/WordPiece, s
 
 `Zero-shot classification` means classifying examples into labels without task-specific labelled training examples for those labels. It is useful when labelled data is scarce, classes change often, or we want rapid deployment using natural-language label descriptions.
 
+\newpage
+
 # Question 7: Query Logs and Click-through Data
 
 ## Original question screenshot
 
-![Original question page for 2024 Question 7](original-question-screenshots/ttds-2024-page-6.png){height=0.78\textheight}
+\includegraphics[height=0.78\textheight,keepaspectratio]{original-question-screenshots/ttds-2024-page-6.png}
 
 ## 原题要点
 
